@@ -1,0 +1,108 @@
+@import url('normalize.css');
+$font-stack: 'Roboto';
+$text-color: #DF6951;
+$text-size: 18px;
+$button-color:#894233;
+$button-text-color:#FFBBAD;
+body{
+    background: url("img/background_main.dark.jpg") no-repeat fixed;
+}
+.filter__button{
+	font-family: $font-stack;
+	font-size: $text-size;
+	color: $button-text-color;
+	background-color: $text-color;
+	border: none;
+	padding: 5px 15px;
+	border-radius: 5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.filter__button:hover,.filter__button:focus{
+	background-color: $button-color;
+}
+.container{
+    font-family: $font-stack;
+    color: $text-color;
+    font-size: $text-size;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.header__content{
+    margin: 100px 0px;
+}
+.filter__content{
+	display: none;
+	z-index: 1;
+}
+.show{
+	display: block;
+}
+.header__filter{
+	display: flex;
+	margin-bottom: 30px;
+}
+.header__genre,.header__year, .header__cense{
+	margin: 10px 50px 0px 0px;
+	display: flex;
+	flex-direction: column;
+}
+.header__genre span,.header__year span,.header__cense span{
+	display: flex;
+	width: 120px;
+	justify-content: space-between;
+}
+.title{
+    text-align: center;
+}
+.rating-text{
+	margin: 10px 0px;
+    font-size: 22px;
+}
+.rating-area {
+	overflow: hidden;
+	width: 300px;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 30px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 26px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+.main{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.card__content img{
+	width: 200px;
+	height: 290px;
+}
