@@ -289,8 +289,7 @@ function filterFunction() {
     filters.forEach(item => {
         FilterYear.forEach(object =>{
             if(object.checked){
-                console.log(!(item.year == object.id),item.year,object.id);
-                if (!(item.year == object.id)) {
+                if (!(item.year === Number(object.id))) {
                     filters.delete(item);
                 }
             }
