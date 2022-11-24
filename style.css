@@ -68,7 +68,7 @@ body {
 }
 .header__genre span, .header__year span, .header__cense span {
   display: flex;
-  width: 120px;
+  width: 150px;
   justify-content: space-between;
 }
 
