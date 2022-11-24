@@ -11,15 +11,15 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="title">LORDFILMS</h1>
+            <h1 class="title" onclick="ReturnCards(animeData)">LORDFILMS</h1>
             <div class="header__content">
-                <button onclick="myFunction()" class="filter__button">
+                <button onclick="filterShow()" class="filter__button">
                    Фильтры
                 </button>
                 <button class="filter__button" onclick="reset()">Сбросить</button>
                 <div id = 'filter__show' class="filter__content">
                     <div class="header__filter">
-                        <div class="header__genre">
+                        <div class="header__genre checkselect">
                             <span><label for="Demons">Demons</label><input type="checkbox" name="Demons" id="Demons" onchange="filterFunction()"></span>
                             <span><label for="Adventures">Adventures</label><input type="checkbox" name="Adventures" id="Adventures" onchange="filterFunction()"></span>
                             <span><label for="Furs">Furs</label><input type="checkbox" name="Furs" id="Furs" onchange="filterFunction()"></span>
@@ -40,7 +40,7 @@
                             <span><label for="Horrors">Horrors</label><input type="checkbox" name="Horrors" id="Horrors" onchange="filterFunction()"></span>
                             <span><label for="Magic">Magic</label><input type="checkbox" name="Magic" id="Magic" onchange="filterFunction()"></span>
                         </div>
-                        <div class="header__year">
+                        <div class="header__year checkselect">
                             <span><label for="2022">2022</label><input onchange="filterFunction()" type="checkbox" name="2022" id=2022></span>
                             <span><label for="2021">2021</label><input onchange="filterFunction()" type="checkbox" name="2021" id=2021></span>
                             <span><label for="2020">2020</label><input onchange="filterFunction()" type="checkbox" name="2020" id=2020></span>
@@ -64,35 +64,21 @@
 
                         </div>
                         <div class="header__rating">
-                            <p class="rating-text">Рейтинг</p>
-                            <div class="rating-area">
-                                <input type="radio" id="star-10" name="rating" value="10">
-                                <label for="star-10" title="Оценка «10»"></label>
-                                <input type="radio" id="star-9" name="rating" value="9">
-                                <label for="star-9" title="Оценка «9»"></label>
-                                <input type="radio" id="star-8" name="rating" value="8">
-                                <label for="star-8" title="Оценка «8»"></label>
-                                <input type="radio" id="star-7" name="rating" value="7">
-                                <label for="star-7" title="Оценка «7»"></label>
-                                <input type="radio" id="star-6" name="rating" value="6">
-                                <label for="star-6" title="Оценка «6»"></label>
-                                <input type="radio" id="star-5" name="rating" value="5">
-                                <label for="star-5" title="Оценка «5»"></label>
-                                <input type="radio" id="star-4" name="rating" value="4">
-                                <label for="star-4" title="Оценка «4»"></label>
-                                <input type="radio" id="star-3" name="rating" value="3">
-                                <label for="star-3" title="Оценка «3»"></label>
-                                <input type="radio" id="star-2" name="rating" value="2">
-                                <label for="star-2" title="Оценка «2»"></label>
-                                <input type="radio" id="star-1" name="rating" value="1">
-                                <label for="star-1" title="Оценка «1»"></label>
+                            <div class="rating__btns">
+                                <p class="rating-text">Рейтинг</p>
+                            <button class="rating__button" onclick="descending()">
+                                По убыванию
+                            </button>
+                            <button class="rating__button" onclick="ascending()">
+                                По возрастанию
+                            </button>
                             </div>
                             <div class="header__cense">
-                                <span><label for="18+">18+</label><input type="checkbox" name="18+" id="18+"></span>
-                                <span><label for="16+">16+</label><input type="checkbox" name="16+" id="16+"></span>
-                                <span><label for="12+">12+</label><input type="checkbox" name="12+" id="12+"></span>
-                                <span><label for="6+">6+</label><input type="checkbox" name="6+" id="6+"></span>
-                                <span><label for="0+">0+</label><input type="checkbox" name="0+" id="0+"></span>
+                                <span><label for="18+">18+</label><input onchange="filterFunction()" type="checkbox" name="18+" id="18+"></span>
+                                <span><label for="16+">16+</label><input onchange="filterFunction()" type="checkbox" name="16+" id="16+"></span>
+                                <span><label for="12+">12+</label><input onchange="filterFunction()" type="checkbox" name="12+" id="12+"></span>
+                                <span><label for="6+">6+</label><input onchange="filterFunction()" type="checkbox" name="6+" id="6+"></span>
+                                <span><label for="0+">0+</label><input onchange="filterFunction()" type="checkbox" name="0+" id="0+"></span>
                             </div>
                         </div>
                 </div>
@@ -100,7 +86,6 @@
             </div>
         </header>
         <main class="main">
-
         </main>
     </div>
 </body>

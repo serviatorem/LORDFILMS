@@ -1,11 +1,23 @@
-@charset "UTF-8";
 @import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 body {
   background: url("img/background_main.dark.jpg") no-repeat fixed;
 }
 
-.filter__button {
-  font-family: "Roboto";
+.title {
+  cursor: pointer;
+}
+
+.container {
+  font-family: "Roboto", sans-serif;
+  color: #e4e4e4;
+  font-size: 18px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.filter__button, .rating__button {
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   color: #FFBBAD;
   background-color: #DF6951;
@@ -17,16 +29,18 @@ body {
   cursor: pointer;
 }
 
-.filter__button:hover, .filter__button:focus {
-  background-color: #894233;
+.rating-text {
+  margin: 10px 0px 20px 0px;
 }
 
-.container {
-  font-family: "Roboto";
-  color: #DF6951;
-  font-size: 18px;
-  max-width: 1440px;
-  margin: 0 auto;
+.rating__button {
+  padding: 10px;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+
+.rating__btns {
+  justify-content: space-between;
 }
 
 .header__content {
@@ -52,7 +66,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .header__genre span, .header__year span, .header__cense span {
   display: flex;
   width: 120px;
@@ -63,65 +76,92 @@ body {
   text-align: center;
 }
 
-.rating-text {
-  margin: 10px 0px;
-  font-size: 22px;
-}
-
-.rating-area {
-  overflow: hidden;
-  width: 300px;
-}
-
-.rating-area:not(:checked) > input {
-  display: none;
-}
-
-.rating-area:not(:checked) > label {
-  float: right;
-  width: 30px;
-  padding: 0;
-  cursor: pointer;
-  font-size: 26px;
-  color: lightgrey;
-  text-shadow: 1px 1px #bbb;
-}
-
-.rating-area:not(:checked) > label:before {
-  content: "★";
-}
-
-.rating-area > input:checked ~ label {
-  color: gold;
-  text-shadow: 1px 1px #c60;
-}
-
-.rating-area:not(:checked) > label:hover,
-.rating-area:not(:checked) > label:hover ~ label {
-  color: gold;
-}
-
-.rating-area > input:checked + label:hover,
-.rating-area > input:checked + label:hover ~ label,
-.rating-area > input:checked ~ label:hover,
-.rating-area > input:checked ~ label:hover ~ label,
-.rating-area > label:hover ~ input:checked ~ label {
-  color: gold;
-  text-shadow: 1px 1px goldenrod;
-}
-
-.rate-area > label:active {
-  position: relative;
-}
-
 .main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.card__content img {
+.card {
+  margin: 30px;
+}
+
+.card__content .img {
   width: 200px;
   height: 290px;
+  transition: all 0.2s ease-in-out;
+  display: block;
+}
+.card__content .img:hover {
+  transform: scale(1.1, 1.1);
+  -webkit-box-shadow: 12px 12px 50px 2px rgba(223, 105, 81, 0.4);
+  -moz-box-shadow: 12px 12px 50px 2px rgba(223, 105, 81, 0.4);
+  box-shadow: 12px 12px 50px 2px rgba(223, 105, 81, 0.4);
+}
+.card__content .card__text-rate {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.card__content .card__text-rate span {
+  color: #DF6951;
+}
+
+.card__object .card__text-rate {
+  font-size: 20px;
+}
+.card__object .card__title {
+  font-size: 30px;
+}
+.card__object img {
+  width: 300px;
+  height: 435px;
+}
+.card__object:hover {
+  transform: none;
+}
+
+.card__full {
+  margin: 0px;
+  display: flex;
+  width: 600px;
+}
+.card__full .card__info {
+  margin-left: 20px;
+}
+.card__full .card__info .card__info-text {
+  color: #DF6951;
+}
+.card__full .card__info .card__year {
+  margin-bottom: 20px;
+}
+.card__full .card__info .card__description {
+  width: 550px;
+}
+.card__full .card__info .card__description span {
+  color: #e4e4e4;
+}
+
+.card__desc {
+  margin: 20px 0px 10px 0px;
+}
+
+.trailer {
+  text-align: center;
+  width: 700px;
+  margin: 40px auto;
+}
+
+span label {
+  cursor: pointer;
+}
+
+.checkselect {
+  max-height: 200px;
+  width: 150px;
+  overflow-y: scroll;
+}
+
+.checkselect::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
