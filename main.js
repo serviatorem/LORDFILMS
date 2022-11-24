@@ -391,6 +391,7 @@ function reset() {
     Cards(animeData);
 };
 function ReturnCards(){
+    container.removeChild(video);
     const cards = filterFunction();
     Cards(cards);
 }
