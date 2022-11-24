@@ -272,6 +272,7 @@ const FilterGenre = document.querySelectorAll('.header__genre input');
 const FilterYear = document.querySelectorAll('.header__year input');
 const FilterCense = document.querySelectorAll('.header__cense input');
 const header__content = document.querySelector('.header__content');
+const video = document.createElement('div');
 function Cards (animeData){
     header__content.style.display = 'block';
     main.innerHTML = '';
@@ -318,7 +319,6 @@ function AddEvent(){
                          </div>
             
         `
-        const video = document.createElement('div');
         video.classList.add('trailer');
         video.innerHTML =`
               <h2>
