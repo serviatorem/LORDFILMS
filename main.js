@@ -272,8 +272,10 @@ const FilterCense = document.querySelectorAll('.header__cense input');
 const header__content = document.querySelector('.header__content');
 const back = document.querySelector('.header__nav img');
 const video = document.createElement('div');
+const search = document.querySelector('#Search');
 function Cards (animeData){
     header__content.style.display = 'block';
+    main.classList.add('main__style');
     main.innerHTML = '';
     animeData.forEach(object =>{
         main.innerHTML+=`<div class="card">
@@ -376,6 +378,32 @@ function filterFunction() {
         main.classList.remove('main__style');
         main.innerHTML = `Не найдено аниме подходящих под условие`;
     }
+    search.onkeyup = function (){
+        const filtersCopy = [];
+        let value = this.value.toLowerCase().replace(/\s/g,'');
+        if(value.length>0){
+            filters.forEach((item,index)=>{
+                console.log(value,item.title.toLowerCase().replace(/\s/g,''),!(item.title.toLowerCase().includes(value)))
+                if ((item.title.toLowerCase().includes(value))){
+                    filtersCopy.push(item);
+                }
+            })
+            if (filtersCopy.length !== 0){
+                main.classList.add('main__style');
+                Cards(filtersCopy);
+            }else{
+                main.classList.remove('main__style');
+                main.innerHTML = `Не найдено аниме подходящих под условие`;
+            }
+        }else{
+            if (filters.size !== 0){
+                Cards(filters);
+            }else{
+                main.classList.remove('main__style');
+                main.innerHTML = `Не найдено аниме подходящих под условие`;
+            }
+        }
+    }
     return filters;
 }
 function descending(){
@@ -399,6 +427,7 @@ function reset() {
     FilterCense.forEach(item =>{
         item.checked = false;
     });
+    search.value = '';
     Cards(animeData);
 };
 function ReturnCards(){

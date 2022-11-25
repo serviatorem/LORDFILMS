@@ -18,10 +18,15 @@
                 </div>
             </div>
             <div class="header__content">
-                <button onclick="filterShow()" class="filter__button">
-                   Фильтры
-                </button>
-                <button class="filter__button" onclick="reset()">Сбросить</button>
+                <div class="header__filter-wrapper">
+                    <div class="wrapper__button">
+                        <button onclick="filterShow()" class="filter__button">Фильтры</button>
+                        <button class="filter__button" onclick="reset()">Сбросить</button>
+                    </div>
+                    <div class="wrapper__search">
+                        <input type="text" value="" placeholder="Search" id="Search">
+                    </div>
+                </div>
                 <div id = 'filter__show' class="filter__content">
                     <div class="header__filter">
                         <div class="header__genre checkselect">
