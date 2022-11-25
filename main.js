@@ -242,17 +242,16 @@ const animeData= [
     }
 ];
 const animeDataCopy = [...animeData];
-animeData.sort((a,b)=> b.year - a.year);
-function NewCard(title, description, genre, rate, age,img,link){
-    this.id = animeData.length+1
-    this.title = title;
-    this.description = description;
-    this.genre = genre;
-    this.rate = rate;
-    this.age = age;
-    this.img = img;
-    this.link = link;
-};
+// function NewCard(title, description, genre, rate, age,img,link){
+//     this.id = animeData.length+1
+//     this.title = title;
+//     this.description = description;
+//     this.genre = genre;
+//     this.rate = rate;
+//     this.age = age;
+//     this.img = img;
+//     this.link = link;
+// };
 function sortSet(set) {
     const entries = [];
     for (const member of set) {
@@ -265,13 +264,13 @@ function sortSet(set) {
       set.add(entry);
     }
     return set;
-  };
-const container = document.querySelector('.container');
+  }
 const main = document.querySelector('.main');
 const FilterGenre = document.querySelectorAll('.header__genre input');
 const FilterYear = document.querySelectorAll('.header__year input');
 const FilterCense = document.querySelectorAll('.header__cense input');
 const header__content = document.querySelector('.header__content');
+const back = document.querySelector('.header__nav img');
 const video = document.createElement('div');
 function Cards (animeData){
     header__content.style.display = 'block';
@@ -284,59 +283,65 @@ function Cards (animeData){
                              </div>
                              <div class = 'card__desc'><h2 class="card__title">${object.title}</h2></div>
                          </div>`;
+        AddEvent();
     });
-    AddEvent();
 }
-Cards(animeData);
+filterFunction(animeData);
+function AddAnime(id){
+    main.innerHTML = '';
+    main.innerHTML = `<div class="card card__full">
+                         <div class="card__content card__object" id="${id}">
+                            <img src="${animeData[id].img}" alt="">
+                         </div>
+                         <div class="card__info">
+                         <div class = "card__text-rate"></div>
+                         <div class = 'card__desc'><h2 class="card__title">${animeData[id].title}</h2><span>${animeData[id].rate}★</span></div>
+                         <div class="card__genre">
+                            <span>жанры:</span><br> <span class="card__info-text">${(animeData[id].genre).join(', ')}</span>
+                         </div>
+                         <div class="card__age">
+                            <span>возрастной ценз:</span><br><span class="card__info-text">${(animeData[id].age)}</span>
+                         </div>
+                         <div class="card__year">
+                            <span>год выпуска:</span><br><span class="card__info-text">${(animeData[id].year)}</span>
+                         </div>
+                         <div class="card__description">
+                            <span>Описание:</span><br><br><span class="card__info-text">${(animeData[id].description)}</span>
+                         </div>
+                        </div>
+                        
+                     </div>
+        
+    `
+    video.classList.add('trailer');
+    video.innerHTML =`
+          <h2>
+            Trailer
+          </h2>
+        <iframe width="695" height="450" src="${animeData[id].link}" title="YouTube video player" frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen></iframe>`
+    main.append(video);
+}
 function AddEvent(){
     const card = document.querySelectorAll('.card__content');
     card.forEach(item =>{
     item.addEventListener('click',function(){
         header__content.style.display = 'none';
-        const id = item.id;
-        console.log(item.id);
-        main.innerHTML = '';
-        main.innerHTML = `<div class="card card__full">
-                             <div class="card__content card__object" id="${id}">
-                                <img src="${animeData[id].img}" alt="">
-                                <div class = "card__text-rate"><span>${animeData[id].rate}★</span></div>
-                                <div class = 'card__desc'><h2 class="card__title">${animeData[id].title}</h2></div>
-                             </div>
-                             <div class="card__info">
-                             <div class="card__genre">
-                                <span>жанры:</span><br> <span class="card__info-text">${(animeData[id].genre).join(', ')}</span>
-                             </div>
-                             <div class="card__age">
-                                <span>возрастной ценз:</span><br><span class="card__info-text">${(animeData[id].age)}</span>
-                             </div>
-                             <div class="card__year">
-                                <span>год выпуска:</span><br><span class="card__info-text">${(animeData[id].year)}</span>
-                             </div>
-                             <div class="card__description">
-                                <span>Описание:</span><br><br><span class="card__info-text">${(animeData[id].description)}</span>
-                             </div>
-                            </div>
-                         </div>
-            
-        `
-        video.classList.add('trailer');
-        video.innerHTML =`
-              <h2>
-                Trailer
-              </h2>
-            <iframe width="700" height="394" src="${animeData[id].link}" title="YouTube video player" frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen></iframe>`
-        container.append(video);
+        back.style.visibility = 'visible';
+        back.style.cursor = 'pointer';
+        AddAnime(item.id);
     });
     item.style.cursor = 'pointer';
 })
-}
+};
 function filterShow() {
     document.querySelector("#filter__show").classList.toggle("show");
 }
 function filterFunction() {
+    main.classList.add('main__style');
     main.innerHTML = '';
+    animeDataCopy.sort((a,b)=> b.year - a.year);
     const filters = new Set(animeDataCopy);
     filters.forEach(item => {
         FilterGenre.forEach(object =>{
@@ -365,9 +370,14 @@ function filterFunction() {
             }
         })
     });
-    Cards(filters);
+    if (filters.size !== 0){
+        Cards(filters);
+    }else{
+        main.classList.remove('main__style');
+        main.innerHTML = `Не найдено аниме подходящих под условие`;
+    }
     return filters;
-};
+}
 function descending(){
     main.innerHTML = '';
     const ase = sortSet(filterFunction());
@@ -379,6 +389,7 @@ function ascending(){
     Cards(Array.from(ase).reverse());
 }
 function reset() {
+    main.classList.add('main__style');
     FilterGenre.forEach(item =>{
         item.checked = false;
     });
@@ -391,7 +402,10 @@ function reset() {
     Cards(animeData);
 };
 function ReturnCards(){
-    container.removeChild(video);
+    main.classList.add('main__style');
+    header__content.style.display = 'block';
+    back.style.visibility = 'hidden';
+    main.removeChild(video);
     const cards = filterFunction();
     Cards(cards);
 }
