@@ -131,7 +131,7 @@ input::-moz-placeholder {
 .main__style:after {
   content: "";
   display: block;
-  background: url(img/uzor1.svg) fixed;
+  background: url(img/uzor1.svg) fixed repeat;
   position: absolute;
   width: 1440px;
   margin: 0 auto;
