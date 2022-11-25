@@ -113,7 +113,7 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 	&:after{
 		content: '';
 		display: block;
-		background: url(img/uzor1.svg);
+		background: url(img/uzor1.svg) fixed;
 		position: absolute;
 		width: 1440px;
 		margin: 0 auto;
