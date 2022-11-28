@@ -107,13 +107,13 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 	gap: 15px;
 	background-color: #1A1419;
 	border: 1px solid #1A1419;
-	border-radius: 10px;
+	border-radius: 30px;
 	display: grid;
 	grid-template-columns: repeat(5,1fr);
 	&:after{
 		content: '';
 		display: block;
-		background: url(img/uzor1.svg) fixed repeat;
+		background: url(img/uzor1.svg) fixed;
 		position: absolute;
 		width: 1440px;
 		margin: 0 auto;
@@ -141,6 +141,7 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 		height: 290px;
 		transition: all .2s ease-in-out;
 		display: block;
+		border-radius: 5px;
 		&:hover{
 			transform: scale(1.1,1.1);
 			-webkit-box-shadow: 12px 12px 50px 2px rgba(223, 105, 81, 0.4);

@@ -124,14 +124,14 @@ input::-moz-placeholder {
   gap: 15px;
   background-color: #1A1419;
   border: 1px solid #1A1419;
-  border-radius: 10px;
+  border-radius: 30px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
 .main__style:after {
   content: "";
   display: block;
-  background: url(img/uzor1.svg) fixed repeat;
+  background: url(img/uzor1.svg) fixed;
   position: absolute;
   width: 1440px;
   margin: 0 auto;
@@ -160,6 +160,7 @@ input::-moz-placeholder {
   height: 290px;
   transition: all 0.2s ease-in-out;
   display: block;
+  border-radius: 5px;
 }
 .card__content .img:hover {
   transform: scale(1.1, 1.1);

@@ -353,8 +353,6 @@ function filterFunction() {
                 }
             }
         });
-    });
-    filters.forEach(item => {
         FilterYear.forEach(object =>{
             if(object.checked){
                 if (!(item.year === Number(object.id))) {
@@ -362,8 +360,6 @@ function filterFunction() {
                 }
             }
         });
-    });
-    filters.forEach(item=>{
         FilterCense.forEach(object=>{
             if(object.checked){
                 if(!(item.age === object.id)){
