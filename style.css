@@ -79,6 +79,9 @@ input::-moz-placeholder {
   text-transform: none;
   margin-bottom: 10px;
 }
+.rating__button:hover {
+  background-color: #b95642;
+}
 
 .rating__btns {
   justify-content: space-between;
@@ -111,6 +114,9 @@ input::-moz-placeholder {
   display: flex;
   width: 150px;
   justify-content: space-between;
+}
+.header__genre span input, .header__year span input, .header__cense span input {
+  border-radius: 10px;
 }
 
 .title {
@@ -226,7 +232,6 @@ span label {
   width: 150px;
   overflow-y: scroll;
 }
-
 .checkselect::-webkit-scrollbar {
   display: none;
 }
