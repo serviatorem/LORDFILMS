@@ -333,6 +333,7 @@ const header__content = document.querySelector('.header__content');
 const back = document.querySelector('.header__nav img');
 const video = document.createElement('div');
 const search = document.querySelector('#Search');
+const after = document.querySelector('.after');
 function Cards (animeData){
     header__content.style.display = 'block';
     main.classList.add('main__style');
@@ -435,11 +436,15 @@ function filterFunction() {
         main.innerHTML = `Не найдено аниме подходящих под условие`;
     }
     search.onkeyup = function (){
+        after.classList.add('after');
         const filtersCopy = [];
         let value = this.value.toLowerCase().replace(/\s/g,'');
+        console.log(value.length);
+        if(value.length > 7){
+            after.classList.remove('after');
+        }
         if(value.length>0){
             filters.forEach((item,index)=>{
-                console.log(value,item.title.toLowerCase().replace(/\s/g,''),!(item.title.toLowerCase().includes(value)))
                 if ((item.title.toLowerCase().includes(value))){
                     filtersCopy.push(item);
                 }

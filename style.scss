@@ -19,6 +19,7 @@ body{
 	display: flex;
 	justify-content: space-between;
 	.wrapper__search{
+		}
 		input{
 			&:focus{
 				outline: 0;
@@ -31,6 +32,21 @@ body{
 			color: $text-color;
 		}
 	}
+	.after{
+		position: relative;
+		&:after{
+			content: '';
+			z-index: 33131;
+			left: 180px;
+			top: 5px;
+			width: 20px;
+			height: 20px;
+			background-image: url("img/optimist.png");
+			background-size: 20px 20px;
+			position: absolute;
+			color: white;
+
+		}
 }
 input::-webkit-input-placeholder { color: $text-color; 	opacity: 0.7;}
 input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
