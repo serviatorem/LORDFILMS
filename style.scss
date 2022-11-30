@@ -6,7 +6,9 @@ $text-size: 18px;
 $button-color:#DF6951;
 $button-text-color:#FFBBAD;
 body{
-    background: url("img/background_main.dark.jpg") no-repeat fixed;
+    background: url("img/background_main.dark.jpg") no-repeat fixed center;
+	background-size: cover;
+	box-sizing: border-box;
 }
 .title{
 		cursor: pointer;
@@ -18,8 +20,6 @@ body{
 .header__filter-wrapper{
 	display: flex;
 	justify-content: space-between;
-	.wrapper__search{
-		}
 		input{
 			&:focus{
 				outline: 0;
@@ -104,7 +104,7 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 }
 .header__filter{
 	display: flex;
-	margin-bottom: 30px;
+	margin: 30px 0px;
 }
 .header__genre,.header__year, .header__cense{
 	margin: 10px 50px 0 0;
@@ -131,7 +131,7 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 	border: 1px solid #1A1419;
 	border-radius: 30px;
 	display: grid;
-	grid-template-columns: repeat(5,1fr);
+	grid-template-columns: repeat(4,1fr);
 	&:after{
 		content: '';
 		display: block;
@@ -151,16 +151,11 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 		z-index: 1;
 	}
 }
-.card{
-	z-index: 2;
-}
 .filter__button:hover{
 	scale: 0.9;
 }
 .card__content{
 	.img{
-		width: 200px;
-		height: 290px;
 		transition: all .2s ease-in-out;
 		display: block;
 		border-radius: 5px;
@@ -230,3 +225,83 @@ span label{
 		display: none;
 	}
 }
+#form__add {
+	display: none;
+	animation-duration: 1.5s;
+	animation-fill-mode: both;
+	animation-name: fadeIn;
+	.wrapper__img{
+		margin-bottom: 30px;
+		img{
+			margin: 0;
+		}
+	}
+	form{
+		input{
+			&:focus{
+				outline: none;
+			}
+			background-color: #fff;
+			border-color: $text-color;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+			box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+			border-width: 1px;
+			border-style: solid;
+			color: #332f2d;
+			padding: 10px;
+			width: 96%;
+		}
+	}
+  }
+  
+  #form__add.open {
+	display: block;
+  }
+  
+  .popup {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	transition: all 0.5s ease;
+	display: none;
+	z-index: 100;
+  }
+  
+  .popup_open {
+	display: block;
+  }
+  
+  .popup__container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: $button-color;
+	border-radius: 10px;
+	max-width: 700px;
+	width: 100%;
+  }
+  
+  .popup__wrapper {
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+  }
+  .form__p{
+	  margin: 0 0 5px 0;
+	  display: block;
+	  color: red;
+  }
+  @keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+  }

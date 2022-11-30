@@ -24,33 +24,42 @@
                         <button onclick="filterShow()" class="filter__button">Фильтры</button>
                         <button class="filter__button" onclick="reset()">Сбросить</button>
                     </div>
+                    <div class="wrapper__button">
+                        <button class="filter__button form__open">Добавить аниме</button>
+                    </div>
                     <div class="after wrapper__search">
                         <input type="text" value="" placeholder="Search" id="Search">
+                        <label for="Search"></label>
                     </div>
                 </div>
                 <div id = 'filter__show' class="filter__content">
-                    <div class="header__filter">
-                        <div class="header__genre checkselect">
-                            <span><label for="Demons">Demons</label><input type="checkbox" name="Demons" id="Demons" onchange="filterFunction()"></span>
-                            <span><label for="Adventures">Adventures</label><input type="checkbox" name="Adventures" id="Adventures" onchange="filterFunction()"></span>
-                            <span><label for="Furs">Furs</label><input type="checkbox" name="Furs" id="Furs" onchange="filterFunction()"></span>
-                            <span><label for="Comedy">Comedy</label><input type="checkbox" name="Comedy" id="Comedy" onchange="filterFunction()"></span>
-                            <span><label for="Detective">Detective</label><input type="checkbox" name="Detective" id="Detective" onchange="filterFunction()"></span>
-                            <span><label for="Slice of life">Slice of life</label><input type="checkbox" name="Slice of life" id="Slice of life" onchange="filterFunction()"></span>
-                            <span><label for="Supernatural">Supernatural</label><input type="checkbox" name="Supernatural" id="Supernatural" onchange="filterFunction()"></span>
-                            <span><label for="Senen">Senen</label><input type="checkbox" name="Senen" id="Senen" onchange="filterFunction()"></span>
-                            <span><label for="Action">Action</label><input type="checkbox" name="Action" id="Action" onchange="filterFunction()"></span>
-                            <span><label for="Sport">Sport</label><input type="checkbox" name="Sport" id="Sport" onchange="filterFunction()"></span>
-                            <span><label for="Harem">Harem</label><input type="checkbox" name="Harem" id="Harem" onchange="filterFunction()"></span>
-                            <span><label for="Romance">Romance</label><input type="checkbox" name="Romance" id="Romance" onchange="filterFunction()"></span>
-                            <span><label for="School">School</label><input type="checkbox" name="School" id="School" onchange="filterFunction()"></span>
-                            <span><label for="Etty">Etty</label><input type="checkbox" name="Etty" id="Etty" onchange="filterFunction()"></span>
-                            <span><label for="Psychological">Psychological</label><input type="checkbox" name="Psychological" id="Psychological" onchange="filterFunction()"></span>
-                            <span><label for="Thriller">Thriller</label><input type="checkbox" name="Thriller" id="Thriller" onchange="filterFunction()"></span>
-                            <span><label for="Drama">Drama</label><input type="checkbox" name="Drama" id="Drama" onchange="filterFunction()"></span>
-                            <span><label for="Horrors">Horrors</label><input type="checkbox" name="Horrors" id="Horrors" onchange="filterFunction()"></span>
-                            <span><label for="Magic">Magic</label><input type="checkbox" name="Magic" id="Magic" onchange="filterFunction()"></span>
+                    <div class="main__style header__filter">
+                        <div class="genre_wrapper">
+                            <p class="rating-text">Жанры:</p>
+                            <div class="header__genre checkselect">
+                                <span><label for="Demons">Demons</label><input type="checkbox" name="Demons" id="Demons" onchange="filterFunction()"></span>
+                                <span><label for="Adventures">Adventures</label><input type="checkbox" name="Adventures" id="Adventures" onchange="filterFunction()"></span>
+                                <span><label for="Furs">Furs</label><input type="checkbox" name="Furs" id="Furs" onchange="filterFunction()"></span>
+                                <span><label for="Comedy">Comedy</label><input type="checkbox" name="Comedy" id="Comedy" onchange="filterFunction()"></span>
+                                <span><label for="Detective">Detective</label><input type="checkbox" name="Detective" id="Detective" onchange="filterFunction()"></span>
+                                <span><label for="Slice of life">Slice of life</label><input type="checkbox" name="Slice of life" id="Slice of life" onchange="filterFunction()"></span>
+                                <span><label for="Supernatural">Supernatural</label><input type="checkbox" name="Supernatural" id="Supernatural" onchange="filterFunction()"></span>
+                                <span><label for="Senen">Senen</label><input type="checkbox" name="Senen" id="Senen" onchange="filterFunction()"></span>
+                                <span><label for="Action">Action</label><input type="checkbox" name="Action" id="Action" onchange="filterFunction()"></span>
+                                <span><label for="Sport">Sport</label><input type="checkbox" name="Sport" id="Sport" onchange="filterFunction()"></span>
+                                <span><label for="Harem">Harem</label><input type="checkbox" name="Harem" id="Harem" onchange="filterFunction()"></span>
+                                <span><label for="Romance">Romance</label><input type="checkbox" name="Romance" id="Romance" onchange="filterFunction()"></span>
+                                <span><label for="School">School</label><input type="checkbox" name="School" id="School" onchange="filterFunction()"></span>
+                                <span><label for="Etty">Etty</label><input type="checkbox" name="Etty" id="Etty" onchange="filterFunction()"></span>
+                                <span><label for="Psychological">Psychological</label><input type="checkbox" name="Psychological" id="Psychological" onchange="filterFunction()"></span>
+                                <span><label for="Thriller">Thriller</label><input type="checkbox" name="Thriller" id="Thriller" onchange="filterFunction()"></span>
+                                <span><label for="Drama">Drama</label><input type="checkbox" name="Drama" id="Drama" onchange="filterFunction()"></span>
+                                <span><label for="Horrors">Horrors</label><input type="checkbox" name="Horrors" id="Horrors" onchange="filterFunction()"></span>
+                                <span><label for="Magic">Magic</label><input type="checkbox" name="Magic" id="Magic" onchange="filterFunction()"></span>
+                            </div>
                         </div>
+                        <div class="year__wrapper">
+                            <p class="rating-text">Год выпуска:</p>
                         <div class="header__year checkselect">
                             <span><label for="2022">2022</label><input onchange="filterFunction()" type="checkbox" name="2022" id=2022></span>
                             <span><label for="2021">2021</label><input onchange="filterFunction()" type="checkbox" name="2021" id=2021></span>
@@ -90,6 +99,7 @@
                             <span><label for="1987">1987</label><input onchange="filterFunction()" type="checkbox" name="1987" id=1987></span>
 
                         </div>
+                    </div>
                         <div class="header__rating">
                             <div class="rating__btns">
                                 <p class="rating-text">Рейтинг</p>
@@ -111,6 +121,53 @@
                 </div>
             </div>
             </div>
+            <div class="popup">
+                <div class="popup__container">
+                  <div class="popup__wrapper">
+                    <div id="form__add">
+                        <div class="wrapper__img" style="visibility: hidden;"><img src="img/Arrow 4.svg" alt="" onclick="form__hidden()"></div>
+                      <form role="form" action="" autocomplete="off" method="GET" id="form">
+                          <div class="form__label-wrapper">
+                              <label for="AnimeTitle">Название Аниме</label>
+                              <input type="text" name="AnimeTitle" id="AnimeTitle">
+                              <p class="form__p"></p>
+                          </div>
+                          <div class="form__label-wrapper">
+                              <label for="AnimeDesc">Описание:</label>
+                              <input type="text" name="AnimeDesc" id="AnimeDesc">
+                              <p class="form__p"></p>
+                          </div>
+                          <div class="form__label-wrapper">
+                              <label for="AnimeGenre">жанры:</label>
+                              <input type="text" name="AnimeGenre" id="AnimeGenre">
+                              <p class="form__p"></p>
+                          </div>
+                          <div class="form__label-wrapper">
+                              <label for="AnimeRate">Рейтинг:</label>
+                              <input type="text" name="AnimeRate" id="AnimeRate">
+                              <p class="form__p"></p>
+                          </div>
+                          <div class="form__label-wrapper">
+                              <label for="AnimeAge">Возрастной ценз:</label>
+                              <input type="text" name="AnimeAge" id="AnimeAge">
+                              <p class="form__p"></p>
+                          </div>
+                        <div class="form__label-wrapper">
+                            <label for="AnimeImg">Ссылка на картинку:</label>
+                            <input type="text" name="AnimeImg" id="AnimeImg">
+                            <p class="form__p"></p>
+                        </div>
+                        <div class="form__label-wrapper">
+                            <label for="AnimeLink">Ссылка на трейлер:</label>
+                            <input type="text" name="AnimeLink" id="AnimeLink">
+                            <p class="form__p"></p>
+                        </div>
+                        <button type="submit" class="filter__button" onclick="button__anime()">Отправить</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </header>
         <main class="main">
         </main>

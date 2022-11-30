@@ -1,4 +1,5 @@
 'use strict';
+// Chainsaw man
 const animeData= [
     //1
     {
@@ -300,18 +301,22 @@ const animeData= [
         img: "https://animego.org/media/cache/thumbs_250x350/upload/anime/images/6321e088d91c5890130687.jpg",
         link: "https://www.youtube.com/embed/x4ztgjvfU60",
     },
+
 ];
-const animeDataCopy = [...animeData];
-// function NewCard(title, description, genre, rate, age,img,link){
-//     this.id = animeData.length+1
-//     this.title = title;
-//     this.description = description;
-//     this.genre = genre;
-//     this.rate = rate;
-//     this.age = age;
-//     this.img = img;
-//     this.link = link;
-// };
+function NewCard(titles, descriptions, genres, rates, ages,years,imgs,links){
+    let newAnime = {
+        id: animeData.length,
+        title: titles,
+        description: descriptions,
+        genre: genres,
+        rate: rates,
+        age: ages,
+        year: years,
+        img: imgs,
+        link: links,
+    }
+    animeData.push(newAnime);
+}
 function sortSet(set) {
     const entries = [];
     for (const member of set) {
@@ -331,9 +336,21 @@ const FilterYear = document.querySelectorAll('.header__year input');
 const FilterCense = document.querySelectorAll('.header__cense input');
 const header__content = document.querySelector('.header__content');
 const back = document.querySelector('.header__nav img');
+const back__form = document.querySelector('#form__add .wrapper__img');
 const video = document.createElement('div');
 const search = document.querySelector('#Search');
 const after = document.querySelector('.after');
+const button__form = document.querySelector('.form__open');
+const form = document.querySelector('#form__add');
+const popup = document.querySelector('.popup');
+const form__input = document.querySelectorAll('form input');
+const form__labelWrapper = document.querySelectorAll('.form__label-wrapper .form__p');
+button__form.addEventListener('click', () => {
+    form.classList.add('open');
+    popup.classList.add('popup_open');
+    back__form.style.visibility = 'visible';
+    back__form.style.cursor = 'pointer';
+  });
 function Cards (animeData){
     header__content.style.display = 'block';
     main.classList.add('main__style');
@@ -341,7 +358,7 @@ function Cards (animeData){
     animeData.forEach(object =>{
         main.innerHTML+=`<div class="card">
                              <div class="card__content" id="${object.id}">
-                                <img class="img" src="${object.img}" alt="">
+                                <img class="img" src="${object.img}" alt="" id="${object.id}">
                                 <div class = "card__text-rate"><span>${object.rate}★</span></div>
                              </div>
                              <div class = 'card__desc'><h2 class="card__title">${object.title}</h2></div>
@@ -349,11 +366,10 @@ function Cards (animeData){
         AddEvent();
     });
 }
-filterFunction(animeData);
 function AddAnime(id){
     main.innerHTML = '';
     main.innerHTML = `<div class="card card__full">
-                         <div class="card__content card__object" id="${id}">
+                         <div class="card__content card__object" >
                             <img src="${animeData[id].img}" alt="">
                          </div>
                          <div class="card__info">
@@ -381,15 +397,15 @@ function AddAnime(id){
           <h2>
             Trailer
           </h2>
-        <iframe width="695" height="450" src="${animeData[id].link}" title="YouTube video player" frameBorder="0"
+        <iframe width="695" height="450" src="${animeData[id].link}" title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen></iframe>`
     main.append(video);
 }
 function AddEvent(){
-    const card = document.querySelectorAll('.card__content');
-    card.forEach(item =>{
-    item.addEventListener('click',function(){
+    const img__card = document.querySelectorAll('.card__content img');
+    img__card.forEach(item =>{
+        item.addEventListener('click',function(){
         header__content.style.display = 'none';
         back.style.visibility = 'visible';
         back.style.cursor = 'pointer';
@@ -397,13 +413,14 @@ function AddEvent(){
     });
     item.style.cursor = 'pointer';
 })
-};
+}
 function filterShow() {
     document.querySelector("#filter__show").classList.toggle("show");
 }
 function filterFunction() {
     main.classList.add('main__style');
     main.innerHTML = '';
+    const animeDataCopy = [...animeData];
     animeDataCopy.sort((a,b)=> b.year - a.year);
     const filters = new Set(animeDataCopy);
     filters.forEach(item => {
@@ -444,7 +461,7 @@ function filterFunction() {
             after.classList.remove('after');
         }
         if(value.length>0){
-            filters.forEach((item,index)=>{
+            filters.forEach((item)=>{
                 if ((item.title.toLowerCase().includes(value))){
                     filtersCopy.push(item);
                 }
@@ -489,7 +506,7 @@ function reset() {
     });
     search.value = '';
     filterFunction();
-};
+}
 function ReturnCards(){
     main.classList.add('main__style');
     header__content.style.display = 'block';
@@ -497,4 +514,32 @@ function ReturnCards(){
     main.removeChild(video);
     const cards = filterFunction();
     Cards(cards);
+}
+function form__hidden(){
+    back__form.style.visibility = 'hidden';
+    form.classList.remove('open');
+    popup.classList.remove('popup_open');
+}
+filterFunction(animeData);
+let name = form__input.item(0).value;
+console.log(name);
+function button__anime(){
+    event.preventDefault(); // Отмена действия по-умолчанию, в данном случае - отправки
+    let name = form__input.item(0).value;
+    form__input.forEach((item,index) =>{
+            if (!item.value){
+                form__labelWrapper[index].innerHTML = 'поле не заполнено';
+                console.log('поле не заполнено');
+            }else{
+                form__labelWrapper[index].innerHTML = '';
+            }
+    })
+    animeData.forEach(item=>{
+        if(item.title === name){
+            form.innerHTML = '';
+            form.innerHTML = 'данное аниме уже существует на сайте';
+        }
+    })
+    console.log(name);
+    console.log(form__input);
 }
