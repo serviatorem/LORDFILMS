@@ -6,12 +6,14 @@ $text-size: 18px;
 $button-color:#DF6951;
 $button-text-color:#FFBBAD;
 body{
+	user-select:none;
     background: url("img/background_main.dark.jpg") no-repeat fixed center;
 	background-size: cover;
 	box-sizing: border-box;
 }
-.title{
-		cursor: pointer;
+.img__link{
+	max-width: 250px;
+	display: block;
 }
 .hidden{
 	cursor: pointer;
@@ -20,7 +22,7 @@ body{
 .header__filter-wrapper{
 	display: flex;
 	justify-content: space-between;
-		input{
+		input{ё
 			&:focus{
 				outline: 0;
 				outline-offset: 0;
@@ -39,8 +41,8 @@ body{
 			z-index: 33131;
 			left: 180px;
 			top: 5px;
-			width: 20px;
-			height: 20px;
+			max-width: 20px;
+			max-height: 20px;
 			background-image: url("img/optimist.png");
 			background-size: 20px 20px;
 			position: absolute;
@@ -53,12 +55,6 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 .wrapper__img img,.next,.previous{
 	margin-top: 30px;
 }
-.header__nav{
-	max-width: 1120px;
-	display: flex;
-	justify-content: space-between;
-}
-
 .container{
     font-family: $font-stack;
     color: $text-color;
@@ -112,16 +108,12 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 	flex-direction: column;
 	span{
 		display: flex;
-		width: 150px;
+		max-width: 150px;
 		justify-content: space-between;
 		input{
 			border-radius: 10px;
 		}
 	}
-}
-.title{
-	text-align: center;
-	margin-left: 300px;
 }
 .main__style {
 	position: relative;
@@ -137,7 +129,7 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 		display: block;
 		background: url(img/uzor1.svg) fixed;
 		position: absolute;
-		width: 1440px;
+		max-width: 1440px;
 		margin: 0 auto;
 		left: 0;
 		top: 0;
@@ -153,6 +145,11 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 }
 .filter__button:hover{
 	scale: 0.9;
+}
+.card{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .card__content{
 	.img{
@@ -182,8 +179,8 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 		font-size: 30px;
 	}
 	img{
-		width: 300px;
-		height: 435px;
+		max-width: 300px;
+		max-height: 435px;
 	}
 	&:hover{
 	transform: none;
@@ -191,7 +188,7 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 }
 .card__full{
 	gap: 0;
-	width: 650px;
+	max-width: 650px;
 	margin: 0;
 	display: flex;
 	flex-direction: column;
@@ -209,6 +206,7 @@ input::-moz-placeholder { color: $text-color; 	opacity: 0.7;}
 	}
 }
 .card__desc{
+	max-width: 250px;
 	margin-bottom: 10px;
 	.card__title{
 		margin: 0;
@@ -219,7 +217,7 @@ span label{
 }
 .checkselect{
 	max-height: 200px;
-	width: 150px;
+	max-width: 150px;
 	overflow-y: scroll;
 	&::-webkit-scrollbar{
 		display: none;
@@ -254,13 +252,13 @@ span label{
 			width: 96%;
 		}
 	}
-  }
-  
-  #form__add.open {
+}
+
+#form__add.open {
 	display: block;
-  }
+}
   
-  .popup {
+.popup {
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -270,13 +268,13 @@ span label{
 	transition: all 0.5s ease;
 	display: none;
 	z-index: 100;
-  }
-  
-  .popup_open {
+}
+
+.popup_open {
 	display: block;
-  }
-  
-  .popup__container {
+}
+
+.popup__container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -285,23 +283,72 @@ span label{
 	border-radius: 10px;
 	max-width: 700px;
 	width: 100%;
-  }
-  
-  .popup__wrapper {
+}
+
+.popup__wrapper {
 	padding: 40px;
 	display: flex;
 	flex-direction: column;
-  }
-  .form__p{
-	  margin: 0 0 5px 0;
-	  display: block;
-	  color: red;
-  }
-  @keyframes fadeIn {
+}
+.form__p{
+	margin: 0 0 5px 0;
+	display: block;
+	color: red;
+}
+@keyframes fadeIn {
 	from {
-	  opacity: 0;
+		opacity: 0;
 	}
 	to {
-	  opacity: 1;
+		opacity: 1;
 	}
-  }
+}
+@media screen and (max-width: 1400px) {
+	.main__style {
+		grid-template-columns: repeat(3,1fr);
+	}
+}
+@media screen and (max-width: 1000px) {
+	.main__style {
+		grid-template-columns: repeat(2,1fr);
+	}
+	.header__filter-wrapper{
+		display: grid;
+		grid-template-columns: repeat(1,1fr);
+		gap: 30px;
+		#Search{
+			width: 100%;
+			padding: 10px;
+		}
+		.wrapper__search{
+			margin: 0 auto;
+			width: 90%;
+		}
+		.wrapper__button{
+			width: 90%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+@media screen and (max-width: 600px) {
+	.main__style {
+		grid-template-columns: repeat(1,1fr);
+	}
+	.header__filter-wrapper{
+		#Search{
+			width: 94%;
+			padding: 10px;
+		}
+		.wrapper__button{
+			width: 50%;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			#Filter{
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
