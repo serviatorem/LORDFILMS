@@ -5,7 +5,6 @@ animeData.forEach(item=>{
     if(item.title.length>25){
         item.title = item.title.slice(0,25)+' ...';
     }
-    console.log(item.title.length);
 })
 function NewCard(array){
     const newAnime = {
