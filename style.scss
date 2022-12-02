@@ -303,6 +303,9 @@ span label{
 		opacity: 1;
 	}
 }
+#Search{
+	outline: none;
+}
 @media screen and (max-width: 1400px) {
 	.main__style {
 		grid-template-columns: repeat(3,1fr);

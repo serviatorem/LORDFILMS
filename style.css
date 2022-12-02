@@ -2,10 +2,7 @@
 @import url("normalize.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 body {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   background: url("img/background_main.dark.jpg") no-repeat fixed center;
   background-size: cover;
   box-sizing: border-box;
@@ -183,6 +180,8 @@ input::-moz-placeholder {
 }
 .card__content .img:hover {
   transform: scale(1.1, 1.1);
+  -webkit-box-shadow: 12px 12px 50px 2px rgba(223, 105, 81, 0.4);
+  -moz-box-shadow: 12px 12px 50px 2px rgba(223, 105, 81, 0.4);
   box-shadow: 12px 12px 50px 2px rgba(223, 105, 81, 0.4);
 }
 .card__content .card__text-rate {
@@ -250,12 +249,9 @@ span label {
 
 #form__add {
   display: none;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
 }
 #form__add .wrapper__img {
   margin-bottom: 30px;
@@ -266,7 +262,9 @@ span label {
 #form__add form input {
   background-color: #fff;
   border-color: #e4e4e4;
+  -webkit-border-radius: 3px;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   border-width: 1px;
   border-style: solid;
@@ -321,15 +319,6 @@ span label {
   color: red;
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -338,6 +327,10 @@ span label {
     opacity: 1;
   }
 }
+#Search {
+  outline: none;
+}
+
 @media screen and (max-width: 1400px) {
   .main__style {
     grid-template-columns: repeat(3, 1fr);
@@ -384,4 +377,6 @@ span label {
   .header__filter-wrapper .wrapper__button #Filter {
     margin-bottom: 30px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
