@@ -156,7 +156,6 @@ function filterFunction() {
         main.innerHTML = `Не найдено аниме подходящих под условие`;
     }
     search.onkeyup = function (){
-        after.classList.add('after');
         const filtersCopy = [];
         let value = this.value.toLowerCase().replace(/\s/g,'');
         console.log(value.length);

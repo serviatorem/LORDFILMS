@@ -22,7 +22,7 @@ body{
 .header__filter-wrapper{
 	display: flex;
 	justify-content: space-between;
-		input{ё
+		input{
 			&:focus{
 				outline: 0;
 				outline-offset: 0;
@@ -39,10 +39,10 @@ body{
 		&:after{
 			content: '';
 			z-index: 33131;
-			left: 180px;
+			left: 170px;
 			top: 5px;
-			max-width: 20px;
-			max-height: 20px;
+			width: 20px;
+			height: 20px;
 			background-image: url("img/optimist.png");
 			background-size: 20px 20px;
 			position: absolute;
