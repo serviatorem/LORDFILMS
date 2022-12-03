@@ -225,6 +225,11 @@ input::-moz-placeholder {
   color: #e4e4e4;
 }
 
+.title a {
+  color: white;
+  text-decoration: none;
+}
+
 .card__desc {
   max-width: 250px;
   margin-bottom: 10px;
