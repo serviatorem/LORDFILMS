@@ -71,6 +71,7 @@ Filter.addEventListener('click',()=>{
     document.querySelector("#filter__show").classList.toggle("show");
 })
 Filter__reset.addEventListener('click',()=>{
+    after.classList.add('after');
     FilterGenre.forEach(item =>{
         item.checked = false;
     });
@@ -101,9 +102,6 @@ function Cards (animeData){
                              <div class = 'card__desc'><h2 class="card__title">${object.title}</h2></div>
                          </div>`;
     });
-}
-function filterShow() {
-    document.querySelector("#filter__show").classList.toggle("show");
 }
 FilterGenre.forEach(item=>{
     item.addEventListener('click',()=>{
@@ -156,6 +154,7 @@ function filterFunction() {
         main.innerHTML = `Не найдено аниме подходящих под условие`;
     }
     search.onkeyup = function (){
+        after.classList.add('after');
         const filtersCopy = [];
         let value = this.value.toLowerCase().replace(/\s/g,'');
         console.log(value.length);
@@ -195,14 +194,6 @@ function ascending(){
     main.innerHTML = '';
     const ase = sortSet(filterFunction());
     Cards(Array.from(ase).reverse());
-}
-function ReturnCards(){
-    main.classList.add('main__style');
-    header__content.style.display = 'block';
-    back.style.visibility = 'hidden';
-    main.removeChild(video);
-    const cards = filterFunction();
-    Cards(cards);
 }
 function form__hidden(){
     back__form.style.visibility = 'hidden';
