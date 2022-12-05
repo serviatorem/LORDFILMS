@@ -14,3 +14,20 @@
 .card__content img{
     border-radius: 5px;
 }
+@media screen and (max-width: 1400px){
+    .main__page{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media screen and (max-width: 750px){
+    .trailer iframe{
+        width: 500px;
+        height: 400px;
+    }
+}
+@media screen and (max-width: 550px){
+    .trailer iframe{
+        width: 400px;
+        height: 300px;
+    }
+}
